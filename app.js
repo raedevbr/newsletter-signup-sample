@@ -19,7 +19,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const appFirebase = initializeApp(firebaseConfig);
 
-app.use(express.static(__dirname));
+//app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', (req, res) => {
