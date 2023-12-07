@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', (req, res) => {
 
-    res.sendFile(path.join(__dirname, '/public/index.html'));
+    res.sendFile(path.join(__dirname, '/index.html'));
 });
 
 app.post('/', (req, res) => {
@@ -57,9 +57,9 @@ app.post('/', (req, res) => {
     const request = https.request(url, options, (response) => {
         
         if ( response.statusCode >= 200 && response.statusCode <= 299 ) {
-            res.sendFile(path.join(__dirname, '/public/success.html'));
+            res.sendFile(path.join(__dirname, '/success.html'));
         } else {
-            res.sendFile(path.join(__dirname, '/public/failure.html'));
+            res.sendFile(path.join(__dirname, '/failure.html'));
         }
         
         response.on("data", (data) => {
