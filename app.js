@@ -3,28 +3,17 @@ import { fileURLToPath } from 'url';
 import express from 'express';
 import bodyParser from 'body-parser';
 import https from 'https';
-import { initializeApp } from 'firebase/app';
-
-const firebaseConfig = {
-    apiKey: "AIzaSyCuO4XH1lC_MfDFbaDfgaTd935BXrx7_oI",
-    authDomain: "newsletter-signup-1dde3.firebaseapp.com",
-    projectId: "newsletter-signup-1dde3",
-    storageBucket: "newsletter-signup-1dde3.appspot.com",
-    messagingSenderId: "110954674426",
-    appId: "1:110954674426:web:01baeb687822fc7b13b143"
-};
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
-const appFirebase = initializeApp(firebaseConfig);
 
-//app.use(express.static(__dirname));
+app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', (req, res) => {
 
-    res.sendFile(path.join(__dirname, '/index.html'));
+    res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
 app.post('/', (req, res) => {
@@ -57,9 +46,9 @@ app.post('/', (req, res) => {
     const request = https.request(url, options, (response) => {
         
         if ( response.statusCode >= 200 && response.statusCode <= 299 ) {
-            res.sendFile(path.join(__dirname, '/success.html'));
+            res.sendFile(path.join(__dirname, '/public/success.html'));
         } else {
-            res.sendFile(path.join(__dirname, '/failure.html'));
+            res.sendFile(path.join(__dirname, '/public/failure.html'));
         }
         
         response.on("data", (data) => {

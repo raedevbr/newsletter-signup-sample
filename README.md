@@ -2,28 +2,30 @@
 
 ![preview](./public/image/preview-newsletter-signup.png)
 
-A web app project using **Mailchimp API** and **Firebase Hosting**.
+### A web app project using Mailchimp API.
 *This is an open-source **sample app** for learning purposes only.*
-[Website link](https://newsletter-signup-fef5c.web.app/)
 
-If you want to test the app on your local machine before deploy, follow the steps below:
 
-1. In 'app.js' file:
-- uncomment this line: 
-`22 //app.use(express.static(__dirname));`
-- add '**/public**' in file path in these lines of code:
-`27 res.sendFile(path.join(__dirname, '/public/index.html'));`
-`60 res.sendFile(path.join(__dirname, '/public/success.html'));`
-`62 res.sendFile(path.join(__dirname, '/public/failure.html'));`
+How to test on your local server:
 
-2. In 'index.html' file:
-- add '**/public**' in file path in these lines of code:
-`112 <link href="/public/css/styles.css" rel="stylesheet">` 
-`118 <img class="mb-4" src="/public/image/mail.png" alt="" height="57">`
+1. Create a new **private** remote repository.
+2. Create an account on [Mailchimp](https://mailchimp.com/) and explore the [API](https://mailchimp.com/developer/)
+3. In '**app.js**' file change these values '**{..}**' with your own data from **Mailchimp**.
 
-3. Now you can start the server with 'node app.js' or 'nodemon app.js' command and test your app on browser typing 'localhost:3000'.
+``` 
+39    const url = "https://us{your_server_number}.api.mailchimp.com/3.0/lists/{your_list_id}";
 
-<span style="color: red">*Don't forget to undo all steps above if you want to deploy your app using Firebase Hosting, it's necessary because firebase hosting has already the package 'public' as default for frontend static files.*</span>
+41    const options = {
+42        method: "POST",
+43        auth: "{chooseAnyUsername}:{your_api_key}"
+44     }; 
+```
+- Note that the **{your_server_number}** you can find at the final of your **api_key**
+
+4. Save the local changes, type '**node app.js**' or '**nodemon app.js**' inside your **project path in terminal** and the server will start on port 3000.
+5. Open any browser and type '**localhost:3000**'.
+
+*Notice: you must host your repository as private, otherwise mailchimp will disable your api_key*
 
 *Hope you enjoy it* 🙃      
 *Feel free to open an issue and contribute with the project* ❤️   
