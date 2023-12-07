@@ -6,12 +6,12 @@ import https from 'https';
 import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCX-VQqaOlaZP_6YEcfvGcxDA9DoZhemzE",
-    authDomain: "newsletter-signup-fef5c.firebaseapp.com",
-    projectId: "newsletter-signup-fef5c",
-    storageBucket: "newsletter-signup-fef5c.appspot.com",
-    messagingSenderId: "557326855114",
-    appId: "1:557326855114:web:de1ae5dbe307b44750fd33"
+    apiKey: "AIzaSyCuO4XH1lC_MfDFbaDfgaTd935BXrx7_oI",
+    authDomain: "newsletter-signup-1dde3.firebaseapp.com",
+    projectId: "newsletter-signup-1dde3",
+    storageBucket: "newsletter-signup-1dde3.appspot.com",
+    messagingSenderId: "110954674426",
+    appId: "1:110954674426:web:01baeb687822fc7b13b143"
 };
 
 const __filename = fileURLToPath(import.meta.url);
