@@ -1,6 +1,6 @@
 # Newsletter Signup
 
-![preview](preview-newsletter-signup.png)
+![preview](./public/image/preview-newsletter-signup.png)
 
 A web app project using **Mailchimp API** and **Firebase Hosting**.
 *This is an open-source **sample app** for learning purposes only.*
