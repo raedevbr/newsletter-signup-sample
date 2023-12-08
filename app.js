@@ -5,11 +5,10 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import https from 'https';
 
+dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
-
-dotenv.config();
 
 app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -67,6 +66,6 @@ app.post('/failure', (req, res) => {
     res.redirect('/');
 });
 
-app.listen(process.env.PORT || process.env.LOCAL_PORT, () => {
-    console.log(`Server is running on port ${process.env.LOCAL_PORT}.`);
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`Server is running on port ${3000}.`);
 });
