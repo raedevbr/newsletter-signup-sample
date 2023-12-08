@@ -1,3 +1,4 @@
+import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import express from 'express';
@@ -7,6 +8,8 @@ import https from 'https';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
+
+dotenv.config();
 
 app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -36,11 +39,11 @@ app.post('/', (req, res) => {
 
     const jsonData = JSON.stringify(data);
 
-    const url = "https://us13.api.mailchimp.com/3.0/lists/bd02175787";
+    const url = `https://us13.api.mailchimp.com/3.0/lists/${process.env.LIST_ID}`;
 
     const options = {
         method: "POST",
-        auth: "raedevbr:2caee2d83276f92d2f3350aa8e5cf148-us13"
+        auth: `${process.env.USERNAME}:${process.env.API_KEY}`
      };
 
     const request = https.request(url, options, (response) => {
@@ -64,6 +67,6 @@ app.post('/failure', (req, res) => {
     res.redirect('/');
 });
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log(`Server is running on port ${3000}.`);
+app.listen(process.env.PORT || process.env.LOCAL_PORT, () => {
+    console.log(`Server is running on port ${process.env.LOCAL_PORT}.`);
 });
